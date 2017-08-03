@@ -15,7 +15,7 @@ namespace :dev do
     desc 'Reprovision dev environment'
     task :reup do
         Rake::Task["dev:down"].invoke
-        sleep 2 # Hack : Required for docker swarm sync issues
+        sleep 5 # Hack : Required for docker swarm sync issues
         Rake::Task["dev:up"].invoke
     end
 end
