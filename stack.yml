@@ -5,3 +5,15 @@ services:
     image: 'wordpress'
     ports:
       - 8080:80
+
+  cadvisor:
+    image: 'google/cadvisor:latest'
+    deploy:
+      mode: 'global'
+    ports:
+      - 8081:8080
+    volumes:
+      - '/:/rootfs'
+      - '/var/run:/var/run'
+      - '/sys:/host/sys'
+      - '/var/lib/docker:/var/lib/docker'

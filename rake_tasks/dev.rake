@@ -11,4 +11,11 @@ namespace :dev do
     task :down do
         sh "docker stack rm #{STACK_NAME}"
     end
+
+    desc 'Reprovision dev environment'
+    task :reup do
+        Rake::Task["dev:down"].invoke
+        sleep 2 # Hack : Required for docker swarm sync issues
+        Rake::Task["dev:up"].invoke
+    end
 end
