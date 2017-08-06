@@ -5,13 +5,6 @@ networks:
     driver: overlay
 
 services:
-  blog:
-    image: 'wordpress'
-    ports:
-      - 8000:80
-    networks:
-      - monitoring
-
   cadvisor:
     image: 'google/cadvisor:latest'
     deploy:
@@ -44,7 +37,7 @@ services:
       - monitoring
 
   prometheus:
-    image: 'localhost:5000/prometheus'
+    image: '${REGISTRY:-localhost:5000}/prometheus'
     ports:
       - 8082:9090
     networks:

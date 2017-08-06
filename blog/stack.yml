@@ -1,0 +1,7 @@
+version: '3.1'
+
+services:
+  blog:
+    image: 'wordpress'
+    ports:
+      - 8000:80
