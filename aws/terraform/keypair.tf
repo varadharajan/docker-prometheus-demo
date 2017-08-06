@@ -1,0 +1,4 @@
+resource "aws_key_pair" "docker_swarm_key" {
+    key_name = "docker_swarm"
+    public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCe5xSCNomOqi0DcV6bGSdevSWeObWj0tjS8uqr9kdTQJQ2Ep2GvHJApJqpopPBukxwwivsx8jFcE46PcrhvHrV+swinjSlJdJOc9gL3jd0rNQH/P3W4kcTlYHM7xhODKscKCgqDlfNXl1liOKIE/YVw2p2y58xcKuUqlE/rSTjSKfm+uNTCkPNu7NhlYNESdyY4rnee/EfHDwMc8hTAa05XJfG6LoJMb/CRTJ19RSHa8UWSKvr5I0pvMWBZ1SIdJvcyGVx3NT3h4dJhJEnI2rh/oD8PiM/8M5ua4u+hmLlpMxTOF2pSMZwu0SqtRWrcKiUMvFiUVpHvGZbFoAhLWHt varadharajan@VaradharajanLaptop"
+}
