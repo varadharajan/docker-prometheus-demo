@@ -26,9 +26,33 @@ services:
     networks:
       - monitoring
 
+  node-exporter:
+    image: prom/node-exporter
+    deploy:
+      mode: global
+    ports:
+      - 8081:9100
+    volumes:
+      - '/proc:/host/proc'
+      - '/sys:/host/sys'
+      - '/:/rootfs'
+    command:
+      - '-collector.procfs=/host/proc'
+      - '-collector.sysfs=/host/proc'
+      - '-collector.filesystem.ignored-mount-points="^/(sys|proc|dev|host|etc)($$|/)"'
+    networks:
+      - monitoring
+
   prometheus:
     image: 'localhost:5000/prometheus'
     ports:
-      - 8081:9090
+      - 8082:9090
+    networks:
+      - monitoring
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 8083:3000
     networks:
       - monitoring
