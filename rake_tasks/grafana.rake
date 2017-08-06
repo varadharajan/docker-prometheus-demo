@@ -1,5 +1,7 @@
 namespace :grafana do
-    grafana_host = ENV['GRAFANA_HOST'] || 'localhost'
+    terraform_discovery_cmd = 'terraform output -state=aws/terraform/terraform.tfstate docker_swarm_node'
+    grafana_host = (ENV['AWS'] and `#{terraform_discovery_cmd}`.strip) || 'localhost'
+
     desc "Deploy datasource and dashboard"
     task :deploy do
         sh "curl 'http://admin:admin@#{grafana_host}:8083/api/datasources' -X POST -H 'Content-Type: application/json;charset=UTF-8' --data-binary @./grafana/prometheus.json"

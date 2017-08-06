@@ -14,5 +14,11 @@ namespace :aws do
             end
         end
 
+        desc "Terraform Destroy"
+        task :destroy do
+            Dir.chdir('aws/terraform') do
+                sh 'terraform destroy -var-file=config.tfvars'
+            end
+        end
     end
 end

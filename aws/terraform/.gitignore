@@ -2,3 +2,4 @@
 ami/vendor
 dependencies
 terraform.tfstate.backup
+terraform.tfstate

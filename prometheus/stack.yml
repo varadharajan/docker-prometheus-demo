@@ -37,7 +37,7 @@ services:
       - monitoring
 
   prometheus:
-    image: '${REGISTRY:-localhost:5000}/prometheus'
+    image: '${REGISTRY}:5000/prometheus'
     ports:
       - 8082:9090
     networks:
