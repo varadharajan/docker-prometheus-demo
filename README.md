@@ -32,6 +32,9 @@ $ # Visit the dashboard at http://localhost:8083 credentials : admin:admin
 To provision AWS resources, we use Terraform. Follow the below commands to get a working AWS environment.
 
 ```bash
+$ export AWS_ACCESS_KEY_ID=<access key>
+$ export AWS_SECRET_ACCESS_KEY=<secret>
+$ export AWS_DEFAULT_REGION=us-east-1
 $ bundle exec rake aws:terraform:plan # Terraform plan for the env
 $ bundle exec rake aws:terraform:apply # To bring up AWS env
 $ AWS=1 bundle exec rake env:up # Deploy Docker services to AWS cluster
