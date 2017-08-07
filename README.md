@@ -10,6 +10,18 @@ This project has been tested on the below specifications:
 * Ruby 2.2.3 (RVM)
 * Terraform 0.9.11+
 
+## Design
+
+The project itself is layered into three parts:
+
+* The base layer provides a Docker registry, used by the swarm cluster internally for accessing images. In a production like environment, we should prefer something like ECR over this.
+
+* The monitoring layer runs cadvisor and node-exporter containers on global mode in the swarm cluster. The prometheus container, scrapes metrics out of these containers and  persists in the default persistence store. In a production environment we should prefer something like InfluxDB for persistence.
+
+* The app layer itself hosts the wordpress application
+
+Terraform makes use of local storage for state in this project. In a production environment, we should prefer S3 backed storage.
+
 ## Setup (DevBox)
 
 ```bash
